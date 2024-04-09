@@ -2055,9 +2055,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
+    staticClass: "row w-75"
   }, [_c("div", {
     staticClass: "col"
   }, [_c("form", {
@@ -2079,7 +2077,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Cadastrar Categoria")])])])])]);
+  }, [_vm._v("Cadastrar Categoria")])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2139,9 +2137,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
+    staticClass: "row w-75"
   }, [_c("div", {
     staticClass: "col"
   }, [_c("form", {
@@ -2236,7 +2232,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Cadastrar Transação")])])])])]);
+  }, [_vm._v("Cadastrar Transação")])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,

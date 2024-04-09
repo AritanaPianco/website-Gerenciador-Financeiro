@@ -1,7 +1,7 @@
 <template>
      
-    <div class="container">
-       <div class="row">
+    <!-- <div class="container"> -->
+       <div class="row w-75">
             <div class="col">
 
                 
@@ -57,7 +57,7 @@
                </div>  
         </div>
                                  
-      </div>
+      <!-- </div> -->
 
 </template>
 

@@ -26,12 +26,12 @@
         #navBar{
             background-color:rgb(0, 0, 44);
             padding: 10px 10px;
-            min-height: 100vh; 
-            position: fixed; /* Alteração aqui */
-            top: 0; /* Para fixar a navbar no topo */
-            left: 0; /* Para alinhar a navbar na lateral esquerda */
-            width: 230px; /* Largura da navbar */
-            overflow-y: auto;          
+            /* min-height: 100vh; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 230px;
+            overflow-y: auto;           */
         }
         
         #navBar a{
@@ -53,7 +53,9 @@
         }
 
         #centro{
-            margin-left: 200px;
+            display: flex;
+            justify-content: center;
+            /* align-items: center */
         }
    
    </style>
@@ -61,8 +63,8 @@
 </head>
 <body>
     <div id="app">     
-     <div class="mw-100 min-vh-100">      
-        <div id="navBar" class="d-flex flex-column">
+     <div class="row mw-100 min-vh-100">      
+        <div id="navBar" class="col-2 d-flex flex-column">
            
             <div id="wrapperActions" class="d-flex flex-column mt-4">
                 
@@ -100,7 +102,7 @@
             </div>
         </div>
 
-        <div id="centro" class="">
+        <div id="centro" class="col-10">
             @yield('content')
         </div>
 

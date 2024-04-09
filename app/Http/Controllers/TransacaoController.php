@@ -39,33 +39,10 @@ class TransacaoController extends Controller
     {
 
         $id = auth()->user()->id;
-        $transacoes = $this->transacao->where('user_id', $id)->with(['metodoPagamento', 'tipoTransacao'])->orderBy('id', 'desc')->paginate(5);
-        
-
+        $transacoes = $this->transacao->where('user_id', $id)->with(['metodoPagamento', 'tipoTransacao'])->orderBy('id', 'desc')->paginate(10);
+           
         // dd($transacoes);
-        $alltranssacoes = [];
-
-        foreach ($transacoes as $index => $transacao) {
-                
-            array_push($alltranssacoes, [
-                $alltranssacoes[$index] =  [ 
-                    'id' => $transacao->id, 
-                    'user_id' => $transacao->user_id, 
-                    'metodo_pagamento_id' => $transacao->metodo_pagamento_id, 
-                    'transacao_id' => $transacao->transacao_id, 
-                    'categoria' => $transacao->categoria,
-                    'valor' => $transacao->valor, 
-                    'descricao' => $transacao->descricao,
-                    'data_transacao' => $transacao->data_transacao,
-                    'relacao' => $transacao->getRelations()
-                 ]     
-            ]); 
-      
-        }
-        array_pop($alltranssacoes);
-        // dd($alltranssacoes);
-     
-        return view('app.transacoes', ['transacoes' => $alltranssacoes]); 
+        return view('app.components.table', ['transacoes' => $transacoes]); 
 
     }
 
