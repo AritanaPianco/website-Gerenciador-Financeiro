@@ -2,9 +2,9 @@
 
 @section('content')  
        
-        <div class="container">
-             <div class="row d-grid p-5">
-                <div class="card text-dark bg-light mb-3 ml-5 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
+        <div id="welcome" class="container">
+             <div class="mt-5">
+                <div class="card text-dark  mb-3 bg-body rounded">
                     {{-- <div class="card-header">Header</div> --}}
                     <div class="card-body">
                       <h5 class="card-title">Gerenciamento Financeiro</h5>
@@ -17,7 +17,7 @@
                      </p>
                     </div>
                   </div>
-                <div class="card text-dark bg-light mb-3 ml-5 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
+                <div class="card text-dark mb-3 bg-body rounded">
                     {{-- <div class="card-header">Header</div> --}}
                     <div class="card-body">
                       <h5 class="card-title">Acompanhamento</h5>
@@ -29,7 +29,7 @@
                         .</p>
                     </div>
                   </div>
-                <div class="card text-dark bg-light mb-3 ml-5 shadow-sm p-3 mb-5 bg-body rounded" style="max-width: 18rem;">
+                <div class="card text-dark mb-3 bg-body rounded">
                     {{-- <div class="card-header">Header</div> --}}
                     <div class="card-body">
                       <h5 class="card-title">Objetivos</h5>

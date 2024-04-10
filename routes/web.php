@@ -20,9 +20,13 @@ Route::get('/', function () {
 Route::get('/categoria/create', 'CategoriaController@create')->name('categoria.create');
 Route::post('/categoria', 'CategoriaController@store')->name('categoria.store');
 
+Route::post('/transacao/filtro', 'TipoTransacaoController@index')->name('categoria.index'); //filtro
+
 Route::get('/transacao/create', 'TransacaoController@create')->name('transacao.create');
 Route::post('/transacao', 'TransacaoController@store')->name('transacao.store');
 Route::get('/transacao', 'TransacaoController@index')->name('transacao.index');
+
+Route::post('/transacao/{id}', 'TransacaoController@destroy')->name('transacao.destroy');
 
 
 

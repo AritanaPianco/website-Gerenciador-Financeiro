@@ -9,11 +9,10 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
-
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('form-categoria-component', require('./components/FormCategoria.vue').default);
 Vue.component('form-transacao-component', require('./components/FormTransacao.vue').default);
-Vue.component('table-transacao', require('./components/TableTransacoes.vue').default);
+Vue.component('filtro-transacao', require('./components/FiltroTransacao.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

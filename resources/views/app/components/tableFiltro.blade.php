@@ -4,9 +4,12 @@
 
 <div class="container" style="margin-top: 50px">
   
-  <filtro-transacao :csrf-token="'{{ csrf_token() }}'" :rota="'{{ route('categoria.index') }}'"></filtro-transacao>
+  <filtro-transacao :csrf-token="'{{ csrf_token() }}'" :rota="'{{ route('categoria.index') }}'">
+    @method('GET')  
+ </filtro-transacao>
   
-  
+
+
   <div id="wrapperTable" class="table-responsive">
         
        <table class="table table-hover table-striped table-bordered">
@@ -50,26 +53,7 @@
             </tbody>
         </table>
        
-            
-        <nav aria-label="...">
-            <ul class="pagination">
-               <li class="page-item">
-                <a class="page-link" href="{{ $transacoes->previousPageUrl()}}">Voltar</a>
-              </li>
-                
-              @for ($i = 1; $i < $transacoes->lastPage(); $i++)
-                <li class="page-item" {{$transacoes->currentPage() == $i ? "active" : '' }}>
-                    <a class="page-link" href="{{ $transacoes->url($i)}}">{{ $transacoes->currentPage() }}</a>
-                </li>
-                  
-              @endfor
-            
-               <li class="page-item">
-                 <a class="page-link" href="{{ $transacoes->nextPageUrl() }}">Avançar</a>
-               </li>
-            </ul>
-          </nav>
-       
+        
     </div> 
 
     {{-- {{ $transacoes->appends($transacao->user_id)->links() }} --}}

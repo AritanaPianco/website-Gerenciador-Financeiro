@@ -15,7 +15,6 @@ class TransacaoController extends Controller
     {
         $this->transacao = $transacao;
         $this->middleware('auth');
-
     }
 
 
@@ -38,12 +37,33 @@ class TransacaoController extends Controller
     public function index()
     {
 
+    
         $id = auth()->user()->id;
-        $transacoes = $this->transacao->where('user_id', $id)->with(['metodoPagamento', 'tipoTransacao'])->orderBy('id', 'desc')->paginate(10);
+        $transacoes = $this->transacao
+                       ->where('user_id', $id)
+                       ->with(['metodoPagamento', 'tipoTransacao'])
+                       ->orderBy('id', 'desc')
+                       ->paginate(6);
            
         // dd($transacoes);
         return view('app.components.table', ['transacoes' => $transacoes]); 
 
     }
+
+
+    public function destroy($id){
+          
+        $transacao = $this->transacao->find($id);
+        if($transacao != null){
+            $transacao->delete(); 
+            return redirect()->route('transacao.index');
+        }
+     }
+
+
+    // public function filtro(Request $request)
+    // {
+      
+    // }
 
 }

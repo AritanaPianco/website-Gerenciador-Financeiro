@@ -1,15 +1,13 @@
 <template>
      
-    <!-- <div class="container"> -->
-       <div class="row w-75">
+    <div class="container">
+       <div class="row">
             <div class="col">
-
-                
+              
                 <form method="POST" :action="rota" class="mt-5">
                     
                     <input type="hidden" name="_token" :value="csrfToken">
                     
-
                       <div class="mb-4">
                            <label for="CategoriaInput" class="text-uppercase form-label">Categoria</label>
                            <input type="text" class="form-control" id="CategoriaInput" name="categoria" >
@@ -26,7 +24,7 @@
                         </div>
 
                         <div class="mb-4 d-flex flex-column">
-                           <label for="metodo_pagamento_id" class="text-uppercase">Tipo de transação</label>
+                           <label for="transacao_id" class="text-uppercase">Tipo de transação</label>
                            <select name="transacao_id" class="form-select">
                                 <option  v-for="tipotransacao in tiposTransacao" :key="tipotransacao.id" :value="tipotransacao.id">
                                      {{ tipotransacao.nome }}
@@ -57,7 +55,7 @@
                </div>  
         </div>
                                  
-      <!-- </div> -->
+      </div>
 
 </template>
 

@@ -1,7 +1,7 @@
 <template>
      
-     <!-- <div class="container"> -->
-        <div class="row w-75">
+     <div class="container">
+        <div class="row">
              <div class="col">
                  <form method="POST" :action="rota" class="mt-5">
  
@@ -21,7 +21,7 @@
                     </form>
                 </div>  
          </div>
-     <!-- </div> -->
+     </div>
 
 </template>
 
