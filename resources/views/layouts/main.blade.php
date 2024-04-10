@@ -20,44 +20,52 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
    <style>
-      body{
-         background-color: rgb(244, 250, 255);
-    }
-        #navBar{
-            background-color:rgb(0, 0, 44);
-            padding: 10px 10px;
-            /* min-height: 100vh; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 230px;
-            overflow-y: auto;  */
-        }
+        body{
+           /* background-color: rgb(244, 250, 255); */
+           background-color: #131e26;
+         }
+           #navBar{
+              /* background-color:rgb(0, 0, 44); */
+              background-color: #20282d;
+              padding: 10px 10px;
+              min-height: 100vh; 
+              /* position: fixed;  */
+              /* top: 0;  */
+              /* left: 0;  */
+              /* position: relative; */
+
+          }
+
+
+           #wrapperTable{
+                /* margin-left: 250px; */
+           }
       
         
-        #navBar a{
-            text-align: center;
-            color: white;
-            font-weight: bold;
-            max-width: 100%;
-            text-decoration: none
+          #navBar a{
+             text-align: center;
+             color: white;
+             font-weight: bold;
+             max-width: 100%;
+             text-decoration: none
 
-        }
+         }
 
         
         #wrapperLinks{
             margin-top: 400px;
-            
-            
+          
         }
         
         #wrapperActions{
             display: flex;
-            flex-direction: column
+            flex-direction: column;
+            
         }
         
         #wrapperActionsMobile{
             display: none;
+         
         }
 
         #wrapperTable thead th{
@@ -67,29 +75,53 @@
           text-align: center 
         }
         
-               
+        /* @media screen and (max-width: 1000px){        
+             #wrapperTable{
+                  margin-left: 180px;
+            }
+      
+        }       
+        @media screen and (max-width: 800px){        
+             #wrapperTable{
+                  margin-left: 150px;
+            }
+      
+        }       
+        @media screen and (max-width: 700px){        
+             #wrapperTable{
+                  margin-left: 100px;
+            }
+      
+        }       
+        @media screen and (max-width: 550px){        
+             #wrapperTable{
+                  margin-left: 100px;
+            }
+      
+        }        */
+
         @media screen and (max-width: 530px){
             #navBar{
-                position: fixed;
+                /* position: fixed;
                 top: 0;
                 left: 0;
-                min-height: 100vh
+                min-height: 100vh */
                     
             }
 
             #wrapperTable{
-                  margin-left: 50px;
+                  /* margin-left: 50px; */
             }
 
             #welcome{
-                margin-left: 60px;
+                margin-left: 10px;
                 font-size: 10px
             }
             #wrapperActions{
                 display: none;  
             }
             
-            #link{
+            .link{
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -104,7 +136,7 @@
 
               
             #wrapperLinks{
-              margin-top: 370px;
+               margin-top: 370px;
             
            }
             
@@ -119,34 +151,39 @@
 
         
 <div class="container mw-100">
-      <div class="row min-vh-100">
+      <div class="row">
             
         <div id="navBar" class="col-2 flex-column">
 
-            <div id="wrapperActionsMobile" class="w-100 mt-4 overflow-hidden">
-                <a href="{{route('transacao.index')}}" id="link" class="btn btn-light mb-3 text-primary">
-                    <i class="ri-organization-chart"></i>
-                    {{-- Minhas Transações --}}
-                </a>
-                <a href="{{route('transacao.create')}}" id="link" class="btn btn-light text-primary mb-3">
+            <div id="wrapperActionsMobile" class="w-100 mt-5">
+                <a href="{{route('transacao.create')}}"  class="link btn btn-light text-primary mb-3">
                     <i class="ri-folder-open-fill"></i>
                     {{-- Nova Transação --}}
                 </a>
-                {{-- <a href="{{ route('categoria.create') }}" id="link" class="btn btn-light text-primary mb-3">Categoria</a> --}}
+                <a href="{{route('transacao.index')}}" class="link btn btn-light mb-3 text-primary">
+                    <i class="ri-organization-chart"></i>
+                    {{-- Minhas Transações --}}
+                </a>
+                <a href="{{ route('categoria.index') }}" class="link btn btn-light text-primary mb-3">
+                    <i class="ri-numbers-fill"></i>
+                </a>
             </div>
 
 
            
-            <div id="wrapperActions" class="w-100 mt-4 overflow-hidden">
-                <a href="{{route('transacao.index')}}" id="link" class="btn btn-light mb-3 text-primary">
-                    <i class="ri-organization-chart"></i>
-                    Minhas Transações
-                </a>
-                <a href="{{route('transacao.create')}}" id="link" class="btn btn-light text-primary mb-3">
+            <div id="wrapperActions" class="w-100 mt-5">
+                <a href="{{route('transacao.create')}}"  class="link btn btn-light text-primary mb-3">
                     <i class="ri-folder-open-fill"></i>
                     Nova Transação
                 </a>
-                <a href="{{ route('categoria.create') }}" id="link" class="btn btn-light text-primary mb-3">Categoria</a>
+                <a href="{{route('transacao.index')}}" class="link btn btn-light text-primary mb-3">
+                    <i class="ri-organization-chart"></i>
+                    Minhas Transações
+                </a>
+                <a href="{{ route('categoria.index') }}" class="link btn btn-light text-primary mb-3">
+                    <i class="ri-numbers-fill"></i>
+                    Minhas Categorias
+                </a>
             </div>
                 
                               
@@ -154,8 +191,8 @@
             <div id="wrapperLinks" class="w-100 d-flex flex-column overflow-hidden">
                 @if (Route::has('login'))
                 @auth
-                  <a href="{{ url('/home') }}" id="link" class="btn btn-light btn-sm text-primary mb-3">Home</a>
-                  <a href="{{ route('logout') }}" id="link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-light btn-sm text-primary mb-3">
+                  <a href="{{ url('/home') }}"  class="link btn btn-light btn-sm text-primary mb-3">Home</a>
+                  <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="link btn btn-light btn-sm text-primary mb-3">
                         Sair
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -164,10 +201,10 @@
   
                 @else
                   @guest 
-                    <a href="{{ route('login') }}" id="link" class="btn mb-3 btn-light btn-sm text-primary">Login</a>
+                    <a href="{{ route('login') }}" class="link btn mb-3 btn-light btn-sm text-primary">Login</a>
                 
                   @if (Route::has('register'))
-                    <a href="{{ route('register') }}" id="link" class="btn mb-3 btn-light btn-sm text-primary">Register</a>
+                    <a href="{{ route('register') }}" class="link btn mb-3 btn-light btn-sm text-primary">Register</a>
                   @endguest
                                    
                 @endif
@@ -183,8 +220,6 @@
     </div>
         
 </div>
-
-
 
 
 </div> 

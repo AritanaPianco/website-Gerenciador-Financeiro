@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/categoria/create', 'CategoriaController@create')->name('categoria.create');
-Route::post('/categoria', 'CategoriaController@store')->name('categoria.store');
+// Route::get('/categoria/create', 'CategoriaController@create')->name('categoria.create');
+Route::get('/categoria', 'CategoriaController@index')->name('categoria.index');
 
-Route::post('/transacao/filtro', 'TipoTransacaoController@index')->name('categoria.index'); //filtro
+Route::get('/transacao/filtro', 'TipoTransacaoController@index')->name('filtro.index'); //filtro
 
 Route::get('/transacao/create', 'TransacaoController@create')->name('transacao.create');
 Route::post('/transacao', 'TransacaoController@store')->name('transacao.store');

@@ -17,21 +17,15 @@ class CategoriaController extends Controller
     }
 
 
-    public function create(){
-        return view('app.categoria');
-    }
-    
-    public function store(Request $request){
-        
-        $request->validate($this->categoria->rules(),$this->categoria->feedback());
-        
-        $this->categoria->create([
-            'nome' => $request->nome,
-            'descricao' => $request->descricao
-        ]);
-        return view('app.categoria');
-        
+    public function index(Request $request)
+    {
+        $user_id = auth()->user()->id;
+  
+        $categorias = $this->categoria->where('user_id', $user_id)->orderBy('id', 'desc')->paginate(8);
+        return view('app.categoria', ['categorias' => $categorias, 'request' => $request]);
+
     }
 
+    
 
 }

@@ -4,15 +4,13 @@
 
 <div class="container" style="margin-top: 50px">
   
-  <filtro-transacao :csrf-token="'{{ csrf_token() }}'" :rota="'{{ route('categoria.index') }}'">
-    @method('GET')  
- </filtro-transacao>
-  
-
-
-  <div id="wrapperTable" class="table-responsive">
+     
+    <div id="wrapperTable" class="table-responsive">
+        <filtro-transacao :csrf-token="'{{ csrf_token() }}'" :rota="'{{ route('filtro.index') }}'">
+            @method('POST')  
+        </filtro-transacao>
         
-       <table class="table table-hover table-striped table-bordered">
+       <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -52,11 +50,10 @@
                
             </tbody>
         </table>
-       
         
     </div> 
 
-    {{-- {{ $transacoes->appends($transacao->user_id)->links() }} --}}
+    {{ $transacoes->appends($request->all())->links() }}
   
 </div>
 

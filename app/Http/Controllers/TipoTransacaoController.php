@@ -30,15 +30,15 @@ class TipoTransacaoController extends Controller
             }else if($metodo_pagamento_id != null && $transacao_id != null){
                 $transacoes = $this->transacao->where("metodo_pagamento_id", $metodo_pagamento_id)
                 ->where('transacao_id', $transacao_id)
-                ->get();
+                ->paginate(6);
             }else if($transacao_id != null){
-                $transacoes = $this->transacao->where("transacao_id", $transacao_id)->get();
+                $transacoes = $this->transacao->where("transacao_id", $transacao_id)->paginate(6);
             }else if($metodo_pagamento_id != null){
-                $transacoes = $this->transacao->where("metodo_pagamento_id", $metodo_pagamento_id)->get();
+                $transacoes = $this->transacao->where("metodo_pagamento_id", $metodo_pagamento_id)->paginate(6);
             }
-            // dd($transacoes);
+          
             
-            return view('app.components.tableFiltro', ['transacoes' => $transacoes]); 
+            return view('app.components.tableFiltro', ['transacoes' => $transacoes, 'request' => $request]); 
         
     }
 }

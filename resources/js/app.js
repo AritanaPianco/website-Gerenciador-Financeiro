@@ -10,7 +10,6 @@ window.Vue = require('vue');
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('form-categoria-component', require('./components/FormCategoria.vue').default);
 Vue.component('form-transacao-component', require('./components/FormTransacao.vue').default);
 Vue.component('filtro-transacao', require('./components/FiltroTransacao.vue').default);
 

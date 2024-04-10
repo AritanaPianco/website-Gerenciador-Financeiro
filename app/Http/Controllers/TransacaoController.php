@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transacao;
-use App\TipoTransacao;
-use App\MetodoPagamento;
+use App\Categoria;
 
 class TransacaoController extends Controller
 {
@@ -30,11 +29,17 @@ class TransacaoController extends Controller
            
         $request['user_id'] = auth()->user()->id;
         $this->transacao->create($request->all());
+        
+        Categoria::create([
+            'nome' => $request->input('categoria'),
+            'user_id' => $request['user_id']  
+        ]);
+
         return redirect()->route('home');
 
     }
 
-    public function index()
+    public function index(Request $request)
     {
 
     
@@ -46,7 +51,7 @@ class TransacaoController extends Controller
                        ->paginate(6);
            
         // dd($transacoes);
-        return view('app.components.table', ['transacoes' => $transacoes]); 
+        return view('app.components.table', ['transacoes' => $transacoes, 'request' => $request]); 
 
     }
 
@@ -61,9 +66,5 @@ class TransacaoController extends Controller
      }
 
 
-    // public function filtro(Request $request)
-    // {
-      
-    // }
 
 }

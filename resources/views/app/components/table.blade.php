@@ -4,12 +4,13 @@
 
 <div class="container" style="margin-top: 50px">
   
-  <filtro-transacao :csrf-token="'{{ csrf_token() }}'" :rota="'{{ route('categoria.index') }}'"></filtro-transacao>
-  
-  
+
   <div id="wrapperTable" class="table-responsive">
+     <filtro-transacao :csrf-token="'{{ csrf_token() }}'" :rota="'{{ route('filtro.index') }}'">
+        @method('POST')
+     </filtro-transacao>
         
-       <table class="table table-hover table-striped table-bordered">
+       <table class="table table-dark table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -49,30 +50,27 @@
                
             </tbody>
         </table>
-       
-            
-        <nav aria-label="...">
-            <ul class="pagination">
-               <li class="page-item">
-                <a class="page-link" href="{{ $transacoes->previousPageUrl()}}">Voltar</a>
-              </li>
-                
-              @for ($i = 1; $i < $transacoes->lastPage(); $i++)
-                <li class="page-item" {{$transacoes->currentPage() == $i ? "active" : '' }}>
-                    <a class="page-link" href="{{ $transacoes->url($i)}}">{{ $transacoes->currentPage() }}</a>
-                </li>
-                  
-              @endfor
-            
-               <li class="page-item">
-                 <a class="page-link" href="{{ $transacoes->nextPageUrl() }}">Avançar</a>
-               </li>
-            </ul>
-          </nav>
-       
-    </div> 
+        
+        
+        {{ $transacoes->appends($request->all())->links() }}
 
-    {{-- {{ $transacoes->appends($transacao->user_id)->links() }} --}}
+        {{-- <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="{{ $transacoes->previousPageUrl()}}">Previous</a>
+            </li>
+
+            @for ($i = 1; $i < $transacoes->lastPage(); $i++)
+             <li class="page-item {{$transacoes->currentPage() == $i ? "active" : '' }}">
+                 <a class="page-link" href="{{ $transacoes->url($i)}}">{{ $transacoes->currentPage() }}</a>
+              </li>
+            @endfor
+                 
+            <li class="page-item">
+              <a class="page-link" href="{{ $transacoes->nextPageUrl() }}">Next</a>
+            </li>
+          </ul>
+        </nav> --}}
   
 </div>
 

@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
-    protected $fillable = ['nome', 'descricao'];
+    protected $fillable = ['user_id','nome', 'descricao'];
+
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+    
 }

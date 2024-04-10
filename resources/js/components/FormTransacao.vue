@@ -9,13 +9,13 @@
                     <input type="hidden" name="_token" :value="csrfToken">
                     
                       <div class="mb-4">
-                           <label for="CategoriaInput" class="text-uppercase form-label">Categoria</label>
+                           <label for="CategoriaInput" class="text-uppercase form-label text-light">Categoria</label>
                            <input type="text" class="form-control" id="CategoriaInput" name="categoria" >
                        </div>
 
 
                        <div class="mb-4 d-flex flex-column">
-                           <label for="metodo_pagamento_id" class="text-uppercase">Metodo de Pagamento</label>
+                           <label for="metodo_pagamento_id" class="text-uppercase text-light">Metodo de Pagamento</label>
                            <select name="metodo_pagamento_id" class="form-select">
                                 <option  v-for="metodopagamento in metodosPagamento" :key="metodopagamento.id" :value="metodopagamento.id">
                                     {{ metodopagamento.nome }}
@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="mb-4 d-flex flex-column">
-                           <label for="transacao_id" class="text-uppercase">Tipo de transação</label>
+                           <label for="transacao_id" class="text-uppercase text-light">Tipo de transação</label>
                            <select name="transacao_id" class="form-select">
                                 <option  v-for="tipotransacao in tiposTransacao" :key="tipotransacao.id" :value="tipotransacao.id">
                                      {{ tipotransacao.nome }}
@@ -34,18 +34,18 @@
                        
                     
                        <div class="mb-4">
-                           <label for="ValorInput" class="text-uppercase form-label">Valor</label>
+                           <label for="ValorInput" class="text-uppercase form-label text-light">Valor</label>
                            <money  v-bind="money" type="text" class="form-control" id="ValorInput" name="valor"></money>
                        </div>
 
 
                        <div class="mb-4">    
-                           <label for="exampleFormControlTextarea1" class="text-uppercase form-label">Descrição</label>
+                           <label for="exampleFormControlTextarea1" class="text-uppercase form-label text-light">Descrição</label>
                            <textarea class="form-control" id="exampleFormControlTextarea1" name="descricao" rows="3"></textarea>
                        </div>
 
                        <div class="mb-4">
-                           <label for="DataInput" class="text-uppercase form-label">Data da transação</label>
+                           <label for="DataInput" class="text-uppercase form-label text-light">Data da transação</label>
                            <input v-mask="'##/##/####'" type="text" class="form-control" id="DataInput" name="data_transacao" placeholder="dd/mm/aaaa">
                        </div>
 

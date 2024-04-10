@@ -3,26 +3,25 @@
 <div class="container">
     <div class="row">
        
-     <form :action="rota" method="POST" class="d-flex mb-5">    
+     <form :action="rota" class="d-flex mb-5">    
             
         <input type="hidden" name="_token" :value="csrfToken">
     
-        <select name="metodo_pagamento_id"> 
-            <option value="" selected disabled>buscar método de pagamento</option>
+        <select name="metodo_pagamento_id" class="mr-2 rounded"> 
+            <option value="" selected disabled>método de pagamento</option>
             <option v-for="metodopagamento in metodosPagamento" :key="metodopagamento.id" :value="metodopagamento.id">
                 {{ metodopagamento.nome }}
             </option> 
         </select>
         
-        <select name="transacao_id">
-            <option value="" selected disabled>buscar tipo de transação</option>
+        <select name="transacao_id" class="mr-2 rounded">
+            <option value="" selected disabled>tipo de transação</option>
             <option  v-for="tipotransacao in tiposTransacao" :key="tipotransacao.id" :value="tipotransacao.id">
                 {{ tipotransacao.nome }}
             </option>  
         </select>
         
-        <!-- <money  v-bind="money" type="text" class="form-control" id="ValorInput" name="valor"></money> -->
-        
+        <!-- <money  v-bind="money" type="text" class="form-control" id="ValorInput" name="valor"></money> -->        
         <button class="btn btn-outline-secondary" type="submit">Buscar</button>
         
     </form>

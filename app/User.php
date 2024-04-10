@@ -42,5 +42,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Transacao');
     }
+
+    public function categorias(){
+        return $this->hasMany('App\Categoria');
+    }
+
+     //um usuario pode ter muitas categorias
+     // uma categoria pertencente a um usuario
     
 }
